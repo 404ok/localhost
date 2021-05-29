@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+        /* window.onload = function(){
+
+        } */
+        $(function(){
+
+            //【注】在JQ中基本上见不到等于号。所有赋值操作都是函数传参的操作
+            //点击事件
+           /* 
+           行不通：
+                $("h1").onclick = function(){
+
+                }
+            */
+           $("h1").click(function(){
+               alert("我被点击了");
+           })
+           //后续所有事件绑定同理
+           $("h1").mouseover(function(){
+               this.style.backgroundColor = "red"
+           })
+           $("h1").mouseout(function(){
+               this.style.backgroundColor = "blue"
+           })
+        })
+    </script>
+</head>
+<body>
+    <h1>helloworld</h1>
+</body>
+<script>
+    alert("hello")
+</script>
+</html>

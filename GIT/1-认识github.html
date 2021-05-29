@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            git
+                git bash:支持linux命令的git控制台(常用)
+                git CMD:支持windows命令的控制台
+                git GUI 可视化界面
+
+                命令行操作git
+            2.VSCode    安装git插件(自己百度)
+                ctrl + ~
+            3.github官方网址：注册账号
+        */
+
+        /* 
+            git操作的具体步骤：(码云)
+                1.cd 路径 进入当前目录
+                2.在本地配置内容：
+                    当前目录需要提交到github上的远程仓库的地址和用户名字
+                    git config --global user.name "404ok"
+                    git config --global user.email "408137781@qq.com"
+                    【注】没有好消息就是好消息
+                3.git操作
+                    提交流程：
+                        1.提交目录(本地磁盘目录),在git里叫做工作区
+                        2.虚拟仓库，中间还要经历一个暂存区
+                        3.要提交到github上的某一个仓库(远程仓库)
+                        11楼搬到1楼,要完好无损
+                           所有东西放在电梯口，电梯口变成暂存区 再到1楼
+                        
+                        1.github上建立一个仓库(远程仓库)
+                        2.在目录下git bash里git init
+                            在本地进行初始化(建立一个暂存区)
+                           目录下会生成一个.git 文件，存储当前项目的所有版本信息
+                        3.工作区 => 暂存区
+                            git add 文件名字
+                            git add * 提交所有文件  【注意】add
+
+                            文件名字太长：
+                                git config --global core.longpaths true
+                            warning: adding embedded git repository:
+                                只需要去相应目录将.git文件删除即可
+                            git commit -m "这一次提交的描述"
+                        4.查看当前工作区的状态
+                            git status
+                            nothing to commit, working tree clean   提交成功
+                            假如报出文件发生错误，那么git diff(查看工作区和暂存区的区别)
+                        5.从暂存区恢复文件到工作区
+                            git checkout 文件名(eg:index.html)
+                        6.清屏：clear
+                        7.git log
+                            查看已经提交到暂存区的历史版本
+                        8.恢复文件到指定版本
+                            git reset --hard HEAD^^(退回两个版本) 
+                            或者:
+                            git reset --hard版本号来回复文件
+                        9.将暂存区的东西传到github仓库
+                            1.给电脑授权，生成SSH密匙
+                                ssh-keygen -t rsa -C "github邮箱地址"
+                            2.去当前电脑找一个隐藏文件
+                                windows查找：我的电脑 => 用户 => 用户名文件夹 => .ssh(隐藏文件) => id_ras.pub(存有密匙)
+                                Git Bash有写路径
+                            3.直接在编译器里面打开
+                            4.去github账户上配置密匙
+                                setting ssh add(title写电脑名字，下面写复制粘贴的id_ras.pub(存有密匙))
+                            5.命令：
+                                remote origin already exists.
+                                    1、先输入 git remote rm origin
+                                    2、再输入 git remote add origin**************
+
+                                1.git remote add origin 网址(进入仓库，点击code栏，复制SSH:git@github.com:404ok/except.git)
+                                2.git push -u origin master
+                                【注意】提交过程，可能需要你输入用户名和密码
+
+         */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

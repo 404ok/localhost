@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            path:限制访问路径
+            默认为加载当前.html文件的路径
+            【注】设置cookie的路径和加载当前文件的路径必须一致，如果不一致，则cookie访问失败
+        */
+       document.cookie = 'username=xxx';
+       document.cookie = 'username=xxx;path=' + '/code14/cookie/demo';//设置一个不存在的路径
+
+       /* 
+            domain  限制访问域名
+                如果不去设置，默认加载当前.html文件的服务器域名 
+                [注意]：如果加载当前文件域名与设置域名不一致，设置cookie失败
+       */
+
+
+        /* 
+            secure
+                如果不设置，设置cookie,可以通过http/https协议加载文件设置
+                【注意】设置这个字段以后，只能设置https协议加载cookie
+
+            https   证书认证协议
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

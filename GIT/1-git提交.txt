@@ -1,0 +1,28 @@
+1.git commit提交新更新的子节点
+2.  git branch <name>       创建分支
+    git checkout <name>     切换到新的分支上
+    git merge bugFix        将bugfix合并到main
+    git rebase main         将其复制过去，并且合并
+3.在提交树上移动
+    git checkout xx         将head指向xx
+    xx^^                    xx的第二个父节点
+    HEAD^                   用head向上                       
+    ~<num>                  一次后退num步。
+    直接使用 -f 选项让分支指向另一个提交。例如:
+    git branch -f main HEAD~3/名字
+    上面的命令会将 main 分支强制指向 HEAD 的第 3 级父/xx名字
+4.撤销
+    git reset 通过把分支记录回退几个提交记录来实现撤销改动。你可以将这想象成“改写历史”。git reset 向上移动分支，原来指向的提交记录就跟从来没有提交过一样。(本地)
+    git revert 则是复制想要退回的内容到新的C2'，再保存分享(远程分支)
+5.
+
+
+
+1.git clone 克隆出来远程仓库(o/(origin))
+2.git fetch 从远程仓库获取数据
+    git pull 就是 git fetch(获取) 和 git merge(合并) 的缩写！
+    git push    你的变更上传到指定的远程仓库，并在远程仓库上合并你的新提交记录
+        因为命令失败了！git push 失败是因为你最新提交的 C3 基于远程分支中的 C1。而远程仓库中该分支已经更新到 C2 了，所以 Git 拒绝了你的推送请求。
+         git fetch; git rebase o/main; git push 
+         git pull --rebase
+

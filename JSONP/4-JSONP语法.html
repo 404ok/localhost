@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 
+        1.在需要的时候加载数据
+        2.能否引入除.js文件以外的其他路径 没问题
+
+        【注意】对于计算机来说，文件后缀没有任何用处(全是1和0)
+        后缀作用：用于给计算机上的软件，快速识别应该用哪个软件打开
+
+
+        JSONP跨域的使用流程：
+            1.先去声明一个函数,这个函数由自己定义，有一个形参
+            2.在需要下载数据的时候，动态创建script标签，将标签src属性设置成下载数据的链接
+            3.当script插入到页面时，就会调用已经封装好的函数，将我们需要的数据传过来
+     -->
+    <script>
+        function download(data){
+            alert("下载的数据" + data);
+        }
+    </script>
+    <script>
+        window.onload = function(){
+            var btn = document.getElementById("btn1");
+            btn.onclick = function(){
+                //创建script标签
+                var script = document.createElement("script");
+                script.src = "./demo.js";
+                document.body.appendChild(script);
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <button id="btn1">下载数据</button>
+</body>
+</html>

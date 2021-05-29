@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        模块化开发的作用域：管理当前页面上引入的所有.js文件的
+        defer async = 'true'  defer:IE8以下兼容  异步加载
+
+        data-main = ""  设置入口文件
+            【注意】每一个.html文件都要一个入口文件，入口文件：管理当前.html使用的所有的.js代码
+            【注意】后续引入的所有.js文件，后续都可以省略
+     -->
+     <script src="./js/require.js" async = 'true' defer data-main="js/main"></script>
+
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            过期时间
+            expires:过期时间
+                必须填写，日期对象
+                【注】系统自动清除过期cookie
+        */
+
+        //获取n天后的日期
+        function afterOfDate(n){
+            var d = new Date(); //获取到当前时间
+            var day = d.getDate();//获取到当前时间的日期
+            d.setDate(n+day);   //加上n
+            return d;
+        }
+        document.cookie = 'username=xxx;expires=' + afterOfDate(7);
+        window.onload = function(){
+            var btn = document.getElementById("btn1");
+            btn.onclick = function(){
+                /* document.cookie = 'username=;expires=' + afterOfDate(-1); */
+                document.cookie = 'username=;expires=' + new Date(0);
+                //或者快速获取过去时间的方法：new Date(0);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn1">删除cookie操作</button>
+</body>
+</html>

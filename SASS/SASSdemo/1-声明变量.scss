@@ -1,0 +1,41 @@
+//普通变量
+$xxx:100px;//要加分号
+$xxx:300px;
+//默认变量,即不再看内容顺序，而是看最近写的值
+$yyy : 200px !default;
+
+
+#div1{
+    width: $xxx;
+    height: $yyy;
+}
+
+$color:red;
+
+
+#div2{
+    color: $color;
+    //$color:orange;局部变量
+    $color:orange !global;//强制声明成全局变量
+    .box{
+        background-color: $color;
+        color: green;
+    }
+}
+
+#div3{
+    background-color: $color;
+}
+
+/* 
+    特殊变量：
+    #{表达式/变量};
+    进行字符串替换/拼接
+    eg:border-top
+    类似js中的ECMA6 ${};
+ */
+
+ $zzz:top;
+ #div4{
+     border-#{$zzz}:100px solid black;
+ }

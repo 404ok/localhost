@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            padding: 50px;   
+        }
+        #div1{
+            background-color: red;
+        }
+        #div2{
+            background-color: blue;
+        }
+        #div3{
+            background-color: orange;
+        }
+    </style>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            【注】都是兼容后的
+                ev pageX clientX
+                which
+                    鼠标事件：button
+                    左中右键    1 2 3
+                    不支持功能键
+                    keydown:keyCode 键码
+                    keypress:charCode 字符码
+                stopPropagation() preventDefault()
+            给三个div添加点击事件
+            【注意】大家不能为了使用JQ而使用JQ
+            如果实际开发时，JS一些比较简单的操作，没必要写成JQ代码
+        */
+       $(function(){
+           $("div").click(function(ev){
+               alert(this.id);
+               //JQ写法：alert($(this).attr("id"));
+               //阻止事件冒泡
+               ev.stopPropagation();
+           })
+           $("a").click(function(ev){
+                /* 
+                    ev.preventDefault();//阻止默认行为
+                    ev.stopPropagation();
+                */
+                // 要即阻止事件冒泡，又阻止默认行为
+                return false;
+           })
+           $(document).click(function(ev){
+               /* 
+                    //输出鼠标的当前位置
+                    alert(ev.pageX + "," + ev.pageY);    //带滚动距离
+                    alert(ev.clientX + "," + ev.clientY);    //可视窗口为原点
+                */
+               alert(ev.which);
+            })
+            $(window).keydown(function(ev){
+                alert(ev.which);
+            })
+       })
+    </script>
+</head>
+<body style="height: 9000px;">
+    <div id="div1">
+        <div id="div2">
+            <div id="div3"> 
+                <!-- 先执行div3,再跳转页面(默认行为) -->
+                <a href="https://www.iconfont.cn/">图标</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

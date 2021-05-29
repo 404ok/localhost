@@ -1,0 +1,15 @@
+$colors:(light:white,dark:black);
+
+@function color($key){
+    @if not map-has-key($colors, $key ){
+        //警告不会终端我们的scss监听
+        @warn "don't have#{$key}";
+    }
+    @return map-get($colors,$key);
+}
+body{
+    background-color: color((dark))
+}
+#div1{
+    background-color: color(xxx);
+}

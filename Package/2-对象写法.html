@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            小A
+            小B
+
+            对外都是暴露
+        */
+        var moduleA = {
+            count:100,
+            showA:function(){
+                this.count += 10;
+                alert(this.count);
+            },
+            showB:function(){
+                this.count += 20;
+                alert(this.count);
+            }
+        }
+        var moduleB = {
+            count:50,
+            showA:function(){
+                this.count += 10;
+                alert(this.count);
+            },
+            showB:function(){
+                this.count += 20;
+                alert(this.count);
+            }
+        }
+        moduleA.showA();
+        moduleB.showB();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

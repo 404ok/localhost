@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            合作开发代码
+        */
+
+        /* 
+            A同学
+        */
+        var moduleA = (function(){
+            var count = 10;//私有变量
+            function aaa(){//私有方法
+                count  += 2;
+                alert(count);
+            }
+            function bbb(){
+                count *= 10;
+                alert(count);
+            }
+            return{
+                funcA:aaa,
+                funcB:bbb
+            }
+        })()
+        /* 
+                B同学
+        */
+        var moduleB = (function(){
+            var count = 100;
+            function aaa(){
+                count  += 5;
+                alert(count);
+            }
+            function bbb(){
+                count *= 20;
+                alert(count);
+            }
+            return{
+                funcA:aaa,
+                funcB:bbb
+            }
+        })();
+
+        moduleA.funcA();
+        moduleA.funcB();
+        moduleB.funcA();
+        moduleB.funcB();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

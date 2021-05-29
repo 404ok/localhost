@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            ready() 事件
+            $(document).ready() 事件触发在当前的document加载完成之后执行
+            window  代表浏览器上的整个窗口(不止包括html,还有history等等)
+
+            document加载完毕肯定是在window加载之前的
+        */
+       window.onload = function(){
+           alert("我是onload");
+       }
+       $(function(){
+            alert(1);
+            
+        })
+        //相当于
+        $(document).ready(function(){
+           alert(2);
+       })
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: chartreuse;
+            position: absolute;
+        }
+    </style>
+    <script>
+        /* 
+            js实现拖拽
+        */
+        window.onload = function(){
+            var div = document.getElementById("div1");
+            div.onmousedown = function(ev){   //down按下
+                var e = ev || window.event;
+                var offsetX = e.pageX - this.offsetLeft;
+                var offsetY = e.pageX - this.offsetLeft;
+                document.onmousemove = function(ev){
+                    var e = ev || window.event;
+                    div.style.left = e.pageX - offsetX + "px";
+                    div.style.top = e.pageY - offsetY + "px";
+                }
+            }
+            document.onmouseup = function(){
+                document.ontouchmove = null;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

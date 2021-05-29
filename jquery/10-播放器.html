@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            triggle(函数名)
+        */
+        $(function(){
+            $("#play").on("play",function(){
+                alert("开始播放音乐");
+            })
+            $("#play").on("next",function(){
+                alert('切换到下一首歌曲');
+            })
+            $("button").eq(0).click(function(){
+                $("#play").trigger("play");
+            })
+            $("button").eq(1).click(function(){
+                $("#play").trigger("next");
+            })
+        })
+    </script>
+</head>
+<body>
+    <button>播放</button>
+    <button>下一首</button>
+    <div id="play"></div>
+</body>
+</html>

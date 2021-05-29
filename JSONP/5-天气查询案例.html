@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.min.css">
+    <script>
+        /* 
+            1.支持jsonp查询操作
+            天气查询接口地址：https://api.asilu.com/weather/
+
+            https://query.asilu.com/weather/baidu/?city=%E9%9D%92%E5%B2%9B&callback=download
+        */
+        //声明一个查询天气函数
+        function download(data){
+            //拿到参数对于数据进行处理,将天气情况取出
+            var t1 = document.getElementById("t1");
+            var info = document.getElementById("info");
+            info.innerHTML = `城市：${data.city},日期:${data.date}`;
+
+            var arr = data.weather;
+            var str = ``;
+            //拿到tbody
+            for(var i = 0;i < arr.length;i++){  //通过循环将节点创建到界面上
+                //字符串拼接
+                str += `<tr>
+                            <td>${arr[i].date}</td>
+                            <td>${arr[i].weather}</td>
+                            <td>${arr[i].wind}</td>
+                            <td>${arr[i].temp}</td>
+                        </tr>`;
+            }
+            t1.innerHTML = str;
+
+        }
+    </script>
+    <script>
+        /* 
+            在需要加载时再加载
+        */
+        window.onload = function(){
+            var search = document.getElementById("search");
+            //通过jsonp加载
+            //创建scirpt标签
+            var city = document.getElementById("city");
+            search.onclick = function(){
+                if(!city.value){
+                    //内容为空
+                    alert("请输入城市名字");
+                }else{
+                    var script = document.createElement("script");
+                    //设置src
+                    script.src = `https://query.asilu.com/weather/baidu/?city=${city.value}&callback=download`;
+                    //将script标签插入到页面即可
+                    document.body.appendChild(script);
+                }
+        }
+        }
+    </script>
+</head>
+<body>
+    <!-- 
+        在输入框输入城市名，就可以完成查询操作
+     -->
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2>
+                    天气查询
+                    <span id="info"></span>
+                </h2>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="city">城市名字：</label>
+                    <input type="text" class="form-control" id="city">
+                </div>
+                <br>
+                <button id="search" >查询该城市天气</button>
+            </div>
+            <br>
+            <div class="panel-footer">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <!-- 表头 -->
+                        <tr>
+                            <th>日期</th>
+                            <th>天气</th>
+                            <th>风向</th>
+                            <th>气温</th>
+                        </tr>
+                    </thead>
+                    <tbody id="t1">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div> 
+    </div>
+</body>
+</html>

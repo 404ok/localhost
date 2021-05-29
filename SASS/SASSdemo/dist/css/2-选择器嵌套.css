@@ -1,0 +1,10 @@
+@charset "UTF-8";
+#div1 {
+  width: 100px; }
+  #div1 .box {
+    height: 200px; }
+  #div1 a {
+    background-color: red; }
+    #div1 a：hover {
+      color: greenyellow;
+      background-color: hotpink; }

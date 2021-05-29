@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            节点操作的方法  以下皆是选择器
+                siblings()  除当前节点外，所有兄弟节点
+                nextAll()   从此节点开始，获取以下所有兄弟节点
+                preAll()    从此节点开始，获取以上所有兄弟节点
+                nextUntil("xx") 从此节点开始往下，直到xx节点结束，不包括两边,开区间
+                prevUntil()     同上(为往上)
+                parentUntil()   同上，父节点
+        */
+       $(function(){
+           /* 
+                $("#p1").siblings("h2").css("backgroundColor","red");
+                $("#p1").nextAll().css("backgroundColor","orange");
+           */
+            $("#p1").nextUntil("h2").css("color","red")
+       })
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <h1>h1</h1>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <p id="p1">p</p>
+        <em>em</em>
+        <h3>h3</h3>
+        <strong>strong</strong>
+        <h6>h6</h6>
+        <h2>h2</h2>
+    </div>
+    <h4>h4</h4>
+</body>
+</html>

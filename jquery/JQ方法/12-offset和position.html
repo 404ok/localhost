@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            *{
+                margin:0;
+                padding: 0;
+            }
+            #div1{
+                width: 200px;
+                height: 200px;
+                background-color: orange;
+                margin: 30px;
+            }
+            #div2{
+                width: 100px;
+                height: 100px;
+                background-color: blue;
+                margin: 20px;
+            }
+    </style>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            offset().left   相对    直接获取当前元素，距离最左边的距离,margin不算数的
+            position()      距离父节点的距离，全算，会算自己的margin,padding
+            offsetParent()  查找第一个有定位的父节点，如果父节点没有定位就继续往上去找，最终找到html节点
+        */
+
+        //获取div2的居左和居上距离
+        $(function(){
+            alert($("#div2").css("top"));
+            alert($("#div2").css("left"));
+
+            //完全不管父节点，只看距离
+            alert($("#div2").offset().left);
+            alert($("#div2").position().left);
+            alert($("#div2").position().top);
+
+            $("#div2").offsetParent().css("backgroundColor","yellow");
+        })
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+
+        </div>
+    </div>
+</body>
+</html>

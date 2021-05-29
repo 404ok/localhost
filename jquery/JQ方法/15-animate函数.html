@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+        }
+        #div1{
+            background-color: cornsilk;
+        }
+        #div2{
+            background-color: cyan;
+        }
+    </style>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            animate(变化的css样式和目的值，动画持续时间，会调函数)
+            默认速度形式：慢快慢
+                匀速    "linear"
+                慢快慢  "swing"
+            拓展更多animate的运动形式
+                引入jquery-ui
+                
+        */
+        $(function(){
+            $("#div1").hover(function(){
+                $("#div2").animate({
+                    width:300,
+                    height:300,
+                    opacity:0.5,
+                },4000,function(){
+                    $("#div1").html("移入");
+                })
+            },function(){
+                $("#div2").animate({
+                    width:200,
+                    height:200,
+                    opacity:1,
+                },4000,function(){
+                    $("#div1").html("移出");
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+</body>
+</html>

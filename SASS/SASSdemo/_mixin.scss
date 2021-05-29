@@ -1,0 +1,9 @@
+//清除浮动
+@mixin clearBoth {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+}

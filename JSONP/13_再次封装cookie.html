@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./cookie.js"></script>
+    <script>
+        /* 
+            合并三个函数，即在使用一个方法实现三个功能的时候
+            看传入参数数量
+
+            设置cookie
+            $cookie(name,value);
+            $cookie(name,value,{});
+
+            获取cookie
+            $cookie(name)
+
+            删除cookie
+            $cookie(name,null);
+        */
+       function $cookie(name){
+           //arguments
+           arguments
+           //判断传入参数的个数
+           switch(arguments.length){
+                case 1:
+                   return getCookie(name)
+                   break;
+                case 2:
+                    if(arguments[1] == null){
+                        removeCookie(name);
+                    }else{
+                        setCookie(name,arguments[1],{});
+                    }
+                    break;
+                default:
+                setCookie(name,arguments[1],arguments[2]);
+                    break;
+           }
+           
+       }
+       //设置值
+       $cookie("超级英雄","钢铁侠");
+       $cookie("DC","蝙蝠侠",{
+           expires:7
+       });
+       $cookie("神话","孙悟空",{
+           expires:9
+       });
+       //获取值
+       alert($cookie("超级英雄"));
+       alert($cookie("DC"));
+       alert($cookie("神话"));
+       window.onload = function(){
+           var btn = document.getElementById("btn1");
+           btn.onclick = function(){
+               removeCookie("超级英雄",null);
+               alert($cookie("超级英雄"));
+            }
+       }
+    </script>
+</head>
+<body>
+    <button id="btn1">删除cookie</button>
+</body>
+</html>

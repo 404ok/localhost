@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            position: relative;
+            display: none;
+        }
+        #close{
+            position:absolute;
+            right: 0;
+            top: 0;
+        }
+        #div1 input{
+            margin-top: 50px;
+            margin-left: 20px;
+        }
+        #close{
+            cursor: pointer;
+        }
+    </style>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            弹窗一直居中，无论滚动和响应式
+
+            要：
+                1.距上距离：滚出去的高度(scrollTop)+离窗口高度((窗口高-自己高)/2)
+                2.距左距离：原理同上
+                3.position
+        */
+       $(function(){
+           $("#issue").click(function(){
+               $("#issue").css("display","none");
+               $("#div1").css("display","block");
+           })
+           $("#close").click(function(){
+               $("#div1").css("display","none");
+           })
+           var top = $(window).scrollTop() +($(window).height() - $("#div1").outerHeight(true))/2; 
+           var left = ($(window).width() - $("#div1").outerWidth(true))/2;
+           //让页面居中
+           $("#div1").css({ //直接传一个对象
+                left:left,
+                top:top,
+           })
+           $(window).on("scroll resize",function(){
+               //计算居中的top和left值
+               var top = $(window).scrollTop() +($(window).height() - $("#div1").outerHeight(true))/2; 
+               var left = ($(window).width() - $("#div1").outerWidth(true))/2;
+               //让页面居中
+               $("#div1").css({ //直接传一个对象
+                    left:left,
+                    top:top,
+               })
+            })
+       })
+    </script>
+</head>
+<body style="height: 3000px;">
+    <!-- 点击发布按钮，div1出现 -->
+    <button id="issue" style="display: block;">发布</button>
+    <div id="div1">
+        <input type="text" placeholder="用户名">
+        <input type="text" placeholder="密码">
+        <!-- 点击close,关闭div1 -->
+        <div id="close">
+            ×
+        </div>
+    </div>
+</body>
+</html>

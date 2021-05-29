@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/* 
+    .js     引入.js文件
+     声明公共样式的时候：
+        标准：_base.scss
+        引入:@import "base"
+*/
+* {
+  margin: 0;
+  padding: 0; }
+
+#div1 {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden; }

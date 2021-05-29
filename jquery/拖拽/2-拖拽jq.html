@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: chartreuse;
+            position: absolute;
+        }
+    </style>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            JQ实现拖拽
+        */
+        $(function(){
+            $("div").mousedown(function(ev){
+                var offsetX = ev.pageX   - $(this).offset().left;
+                var offsetY = ev.pageY - $(this).offset().top;
+                //this是当前按下的div
+                var _this = this;
+                $(document).mousemove(function(ev){
+                    $(_this).css({
+                        left:ev.pageX - offsetX,
+                        top:ev.pageY - offsetY,
+                    })
+                })
+            })
+            $(document).mouseup(function(){
+                $(document).off("mousemove");
+            })
+        })
+    </script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

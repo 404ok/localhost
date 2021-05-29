@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            1.希望一个变量常驻与内存中
+            2.避免全局变量污染
+            3.可以声明私有成员
+        */
+        /* 
+            全局变量污染，则两个人的代码，有可能函数名和变量名一样，会让代码出现错误
+            解决办法：尽量写在函数里
+        */
+       function show(){
+            var a = 2;//局部变量，但是这样无法实现a的累加
+            a++;
+            alert(a);
+        }
+        
+        /* 
+            实现：
+                1.避免全局污染
+                2.对a进行累加
+                【注】让a变量常驻内容   =>  闭包
+                用局部变量实现a的累加，且不会被垃圾机制回收
+        */
+
+        /* function aaa(){
+            var a = 2;
+            function bbb(){
+                a++;
+                alert(a);
+            }
+            return bbb;
+        }
+        var ccc = aaa();
+        ccc();
+        ccc();
+        alert(a);*/
+
+        var ccc = (function(){
+            var a = 2;
+            return function(){
+                a++;
+                alert(a);
+            }
+        })();
+        ccc();
+        ccc();
+        alert(a);
+    </script> 
+</head>
+<body>
+    
+</body>
+</html>

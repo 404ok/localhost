@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            1.全局变量污染在闭包这里解决掉了
+            2.内部变量私有化解决掉
+            新问题：对于其二次扩展却不可能了
+        */
+       var modulA = (function(){
+           var count =10;
+           function showA(){
+                count += 20;
+                alert(count)
+           }
+           function showB(){
+                count += 10;
+                alert(count)
+           }
+
+           //对外暴露
+           return{
+               outA:showA,
+               outB:showB
+           }
+       })();
+       modulA.outA();
+       modulA.outB();
+       alert(showA);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

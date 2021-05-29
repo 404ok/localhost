@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <!-- 点击按钮 (ajax加载)用户列表 -->
+    <script src="./ajax.js"></script>
+    <script src="./tool.js"></script>
+    <script>
+        window.onload = function(){
+            var btn= document.getElementById("btn1");
+            var t1 = document.getElementById("t1");
+            
+            btn.onclick = function(){
+                $ajax({
+                    method:"get",
+                    url:"./userlist.php",
+                    success:function(result){
+                        var arr =  JSON.parse(result);//转成对象
+                        //通过循环创建节点添加到页面上(字符串拼接)
+                        var str = '';
+                        for(var i = 0;i < arr.length;i++){
+                            str += `<tr>
+                                <td>${arr[i].id}</td>
+                                <td>${arr[i].username}</td>
+                                <td>${arr[i].password}</td>
+                                <td>${showTime(Number(arr[i].create_time))}</td>
+                                <td id= '${arr[i].id}'>
+                                    <a href="#">删除</a>
+                                    /
+                                    <a href="./25-updateStudents.html?id=${arr[i].id}">修改</a>
+                                </td>
+                            </tr>`;
+                        }
+                        t1.innerHTML = str;
+                    },
+                    error:function(msg){
+                        alert(msg);
+                    }
+                })
+            }
+            //用户数据的删除，事件委托实现点击,因为删除按钮是后面才出现的
+            //先找到父节点
+            t1.onclick = function(ev){
+                var e = ev || window.event;
+                //获取到触发对象，即目标对象，删除按钮
+                var target = e.target || window.event.srcElement;
+                if(target.nodeName.toLowerCase() == "a" && target.innerHTML == "删除"){
+                    //如果点击删除按钮，进行删除该行用户数据
+                    //要知道id，然后去数据库进行删除
+                    var id = target.parentNode.id;
+                    // 请求后台页面删除后台数据,用ajax将id传到php页面
+                    $ajax({
+                        method:"get",
+                        url:"./deleteStudents.php",
+                        data:{
+                            id:id,
+                        },
+                        success:function(result){
+                            var obj = JSON.parse(result);
+                            if(!obj.code){//如果code为0，则删除成功
+                                //则删除删除节点的父节点的父节点(即整行)
+                                t1.removeChild(target.parentNode.parentNode);
+                            }else{
+                                alert(obj.message);
+                            }
+                        },
+                        error:function(msg){
+                            alert(msg);
+                        },
+                    })
+                    return false;//纠正默认行为(即点击a标签会跳转)
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="panel  panel-primary">
+            <div class="panel-heading">
+                <h2>获取用户列表</h2>
+            </div>
+            <div class="panel-body">
+                <button id="btn1" class="btn btn-info form-control">获取用户数据</button>
+                <br>
+                <br>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>用户id</th>
+                            <th>用户名</th>
+                            <th>密码</th>
+                            <th>注册日期</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="t1">
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

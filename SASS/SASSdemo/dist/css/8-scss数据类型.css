@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/* 
+    数字：1，1.8，10px
+    字符串："foo",'bar',baz
+    列表： c 1.5em 1em 0 2em
+    映射：key1:value1   key2:value2
+
+    另外支持数字函数的运算
+        abs(-10)
+        round(3,4)
+        ceil(3,1)
+        floor(4.1)
+
+*/

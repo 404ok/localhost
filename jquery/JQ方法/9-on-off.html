@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            js事件绑定和事件监听器区别:
+                1.多次添加事件，后面事件覆盖前面事件
+                2.不能指定某一个事件上的某一个函数进行删除的
+            JQ事件绑定：
+                底层全是拿事件监听去分装的,按顺序，保留我们添加的所有事件
+                $().click(function(){
+
+                })
+                on()
+                off()
+        */
+        /* $(function(){
+            $("#div1").click(function(){
+                alert("1");
+            })
+            $("#div1").click(function(){
+                alert("2");
+            })
+        }) */
+
+
+        $(function(){
+            /* //1.给一个事件添加一个函数
+            $("#div1").on("click",function(){
+                alert("hello");
+            })
+            //2.同时给多个事件添加一个函数,用空格隔开
+            var i = 0;
+            $("#div1").on("click mouseover",function(){
+                $(this).html(i++);
+            }) */
+            //3.给不同事件添加不同的函数
+            $("#div1").on({
+                click:function(){
+                    alert("点击");
+                },
+                mouseover:function(){
+                    $(this).css("backgroundColor","red");
+                },
+                mouseout:function(){
+                    $(this).css("backgroundColor","blue");
+                }
+            })
+
+            $("#div1").click(show);
+            function show(){
+                alert("show");
+            }
+            //实现事件委托 => js给后添加节点添加点击事件       提高开发效率 
+            /* 
+                第二个参数：是触发对象的选择器
+            */
+            $("ul").on("click","li",function(){
+                $(this).css("backgroundColor","red");
+            })
+            var i  =  6;
+            $("#btn1").click(function(){
+                //新增li节点
+                $(`<li>${i++ * 1111}</li>`).appendTo($("ul"));
+
+                //【注意】这里是反引号
+            })
+            $("#cancel").click(function(){
+                //取消所有事件上的所有函数
+                $("ul").off();
+                //取消某一个事件下的所有函数
+                // $("#div1").off("click");
+                //假如要取消特定事件下的特定函数，需要知道函数名
+                $("#div1").off("click",show);
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+    <ul>
+        <li>1111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>5555</li>
+    </ul>
+    <button id="btn1">增加节点</button>
+    <button id="cancel">取消事件</button>
+</body>
+</html>

@@ -1,0 +1,23 @@
+@charset "UTF-8";
+#div1 {
+  width: 300px;
+  height: 200px; }
+
+#div2 {
+  color: red; }
+  #div2 .box {
+    background-color: orange;
+    color: green; }
+
+#div3 {
+  background-color: orange; }
+
+/* 
+    特殊变量：
+    表达式/变量;
+    进行字符串替换/拼接
+    eg:border-top
+    类似js中的ECMA6 ${};
+ */
+#div4 {
+  border-top: 100px solid black; }

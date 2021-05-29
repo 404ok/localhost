@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            border: 1px solid black;
+            display: none;
+            width: 167px;
+        }
+        #ul1 li a{
+            line-height: 30px;
+            padding: 5px;
+            text-decoration: none;
+            color: black;
+            display: block;
+        }
+        #ul1 li a:hover{
+           background-color: chartreuse;
+           color: white;
+        }
+    </style>
+    <script>
+        function download(data){
+            // alert("下载的数据是" + data);
+            //取出我们的数据
+            var arr = data.s;
+            var str=``;
+            var ul = document.getElementById("ul1");
+            //需要将上一次ul清空掉
+            ul.innerHTML = '';
+            ul.style.display = 'block';
+            for(var i = 0; i <arr.length;i++){
+                var newLi = document.createElement("li");
+                var a = document.createElement("a");
+                a.innerHTML = arr[i];
+                //设置一个a标签的跳转链接，且在新页面打开
+                a.href = 'http://www.baidu.com/s?wd=' + arr[i] ;
+                //直接跳转到加载页面
+                a.target = "_blank";
+                newLi.appendChild(a);
+                ul.appendChild(newLi);
+            }
+        }
+    </script>
+    <script>
+        /* 
+            即是自动出现相关联词
+            链接：http://suggestion.baidu.com/su?wd=${this.value}&cb=func
+            wd后搜索内容
+        */
+        /* 
+            1.一输入内容，即出现下拉列表的数据 
+            onkeyup实现
+        */
+       window.onload = function(){
+           var i = document.getElementById("q");
+           var ul = document.getElementById("ul1");
+           i.onkeyup = function(){
+               var value = this.value;
+               if(!value){
+                   ul.style.display = 'none';
+               }else{
+                   //通过jsonp加载数据
+                   var script = document.createElement("script");
+                   script.src = `http://suggestion.baidu.com/su?wd=${this.value}&cb=download`;///download为回调函数
+                   document.body.appendChild(script);
+               }
+           }
+       }
+    </script>
+</head>
+<body>
+    <div class="div1">
+        <input type="text" id="q">
+        <ul id="ul1">
+        <!-- 
+            <li>
+                <a href="#">百度</a>
+            </li>
+            <li>
+                <a href="#">百度</a>
+            </li>
+            <li>
+                <a href="#">百度</a>
+            </li> 
+        -->
+        </ul>
+    </div>
+</body>
+</html>

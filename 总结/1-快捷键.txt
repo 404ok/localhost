@@ -1,0 +1,26 @@
+1.电脑快捷键
+    ctrL + shift + delete   快速清除浏览器缓存
+    ctrl + alt + delete     快速进入任务管理器页面
+    windows + L             快速锁定电脑
+    windows + d             所有窗口最小化
+    windows + e             打开我的电脑
+    windows + f             快速打开搜索窗
+
+2.VS快捷键
+    1.shift + alt + up/down     复制当前行
+    2.ctrl + ~                  控制台显示隐藏
+    3.ctrl + p                  查找文件
+    4.ctrl + +/-                字体放大缩小
+    5.ctrl + [/]                行增加缩进/减少缩进
+    6.F11                       切换全屏
+    7.shift + up/down/left/right选中文字
+    8.shift + 鼠标左键          选中代码
+    9.ctrl + r                  打开最近打开的文件
+    10.ctrl + pgup/pgdn         跳转页面
+    11.ctrl + left/right        在单纯之间移动光标
+    12.ctrL + shift + enter     在上面新建一行
+    13.alt + shift + up/down    将代码向上/下复制
+    
+    alt + up/down             移动行
+    ctrl + b                  显示/隐藏左侧目录栏
+    shift + ctrl + k          删除当前行    

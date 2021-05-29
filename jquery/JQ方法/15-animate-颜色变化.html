@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+        
+        #div1{
+            position: absolute;
+            top: 300px;
+        }
+        #div2{
+            background-color: blue;
+        }
+        .box{
+            background-color: green;
+        }
+    </style>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            animate:改变颜色
+        */
+       $(function(){
+            $("#div1").click(function(){
+
+            })
+            $("button").eq(0).click(function(){
+                $("#div1").addClass("box");
+            })
+            $("button").eq(1).click(function(){
+                $("#div1").removeClass("box");
+            })
+
+            /* 
+                有了JQUI之后，addClass和removeClass就变成了加强版
+            */
+       })
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <button>添加class样式</button>
+    <button>删除class样式</button>
+</body>
+</html>

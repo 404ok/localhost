@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+        }
+        #div1{
+            background-color: chartreuse;
+        }
+        #div2{
+            background-color: cornflowerblue;
+        }
+    </style>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+           
+            给当前添加移入移出  hover()
+            hover(funcOver,funcOut)
+
+            hide()  隐藏
+                第一个函数：动画持续的毫秒数
+                第二个函数：回调函数,动画结束时取执行
+            show()
+                同上
+            【注意】动画效果是从左上角收起和从左上角展开
+
+            卷闸效果：
+                slideDown()
+                slideUp()
+            淡入淡出效果：
+                fadeIn()    淡入
+                fadeOut()   淡出
+                fadeTo(动画持续事件，透明度(0~1)，回调函数)
+        */
+        $(function(){
+            $("#div1").hover(function(){
+                $("#div2").hide(2000,function(){
+                    $(this).html("移入");
+                });
+                $("#div1").slideUp(2000,function(){
+                    $(this).html("移入");
+                });
+                $("#div1").fadeIn(2000,function(){
+                    $(this).html("移入");
+                });
+            },function(){
+                $("#div2").show(2000,function(){
+                    $(this).html("移入");
+                });
+                $("#div1").slideDown(2000,function(){
+                    $(this).html("移入");
+                });
+                $("#div1").fadeOut(2000,function(){
+                    $(this).html("移入");
+                });
+                $(this).html("移出");
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+</body>
+</html>

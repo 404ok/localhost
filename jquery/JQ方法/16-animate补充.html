@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+        #div2{
+            position: absolute;
+            top: 300px;
+        }
+        #div2{
+            background-color: blue;
+        }
+        .box{
+            background-color: green;
+        }
+    </style>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            给div1添加：移入时宽高同时发生变化
+
+            JQ停止动画函数
+        */
+       $(function(){
+           /* $("#div1").hover(function(){
+               $(this).animate({
+                   width:300,
+                   height:300
+                },4000)
+               },function(){
+                    $(this).animate({
+                        width:100,
+                        height:100,
+                },4000)
+           }) */
+           //为了保证当前动画马上触发，可以每次调用加一个stop(true)
+           $("#div1").click(function(){
+               $("#div1").animate({
+                   width:300
+               },2000)
+               .animate({
+                   height:400
+               },2000)
+           })
+           //点击div2时停止div1的动画
+           $("#div2").click(function(){
+               /* //停止第一个动画，当时后续动画正常运行
+               $("#div1").stop();
+               //停止第一个动画，当时后续动画也停掉
+               $("#div1").stop(true); 
+               //停止第一个动画，且让当前动画直接到达目的值
+               $("#div1").stop(true,true);*/
+                //停止动画，并且直接到达所有动画目的值
+                $("#div1").finish();
+                //延迟
+                
+
+           })
+       })
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+</body>
+</html>

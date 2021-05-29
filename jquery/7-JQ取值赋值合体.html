@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            /* 
+                获取标签内的内容，用innerHTML来获取
+                input用value获取其内容值
+            */
+            //取值
+            alert($("#div1").html());
+            //赋值
+            $("#div1").html("<h2>我是新赋值的内容</h2>");
+
+            alert($("input").val());
+            $("input").val("ok");
+        })
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <em>em</em>
+        div文本
+    </div>
+    <input type="text" value="helloworld">
+</body>
+</html>

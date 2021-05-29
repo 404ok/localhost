@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+
+        */
+       window.onload = function(){
+           var btns = document.getElementsByTagName("button");
+           //通过循环给每个按钮添加点击事件
+          /*  for(var i = 0;i < btns.length;i++){
+               btns[i].onclick = function(){
+                   alert(i);//这里因为循环已经结束了，所以无论点击那个按钮，都会是3
+               } 
+
+               btns[i].onclick = (function(index){
+                   return function(){
+                        alert(index);
+                   }
+               })(i);
+           } */
+
+           for(var i = 0;i < btns.length;i++){
+               btns[i].onclick = btnClick(i);
+           }
+           //btnClick(0)    index = 0;
+           //btnClick(1)    index = 1;
+           //btnClick(2)    index = 2;
+           function btnClick(index){
+               return function(){
+                   alert(index);
+               }
+           }
+       }
+    </script>
+</head>
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+</body>
+</html>

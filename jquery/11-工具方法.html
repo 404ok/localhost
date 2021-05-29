@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            JQ的工具方法和我们自己封装的js方法没有区别：
+                $()下的常用方法(都没用了，ECMA5和ECMA6类似功能的函数)
+                JQ的方法调用：$().xxx   $().yyy()   必须JQ对象调用才可以
+                但是工具方法调用：$.xxx()
+                    type()  输出当前数据类型
+                    trim()  删除首尾空格 
+                    inArray()   indexOf()   查找位置
+                    proxy()     类似于bind功能
+                    noConflict()    给$起一个别名
+                    makeArray()     给伪数组转成数组    Array.from()//js新增
+
+        */
+       var arr = [10,20,30];
+       alert($.inArray(30,arr));
+       //getByTagname为伪数组
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

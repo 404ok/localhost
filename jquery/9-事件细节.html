@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            trigger()   主动触发，调用之后直接触发(官方事件及自定义事件)
+            类似于js：node.onclick = function(){
+
+            }
+            ev.data 拿到传入的参数
+
+            ev.target(兼容后触发对象)
+            ev.type(输出事件类型)
+        */
+       $(function(){
+           /* $("button").click(function(ev){
+                alert(ev.type);
+                alert(ev.target);   //e.target就是触发按钮
+           }) */
+
+           //给btn添加函数  配合on方法使用
+           $("button").on("click",{
+               username:"钢铁侠",
+               age:"67",},
+               function(ev){
+                    alert(ev.data);//拿到传入的参数
+                    alert(ev.data.username);
+                    alert(ev.data.age);
+           })
+       })
+    </script>
+</head>
+<body>
+    <button>按钮</button>
+</body>
+</html>

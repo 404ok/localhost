@@ -1,0 +1,29 @@
+@charset "UTF-8";
+/* 
+    混合    类似于C语言中的宏定义
+    混合：代码块(不是函数)
+
+    @mixin  混合名字{}
+    @include 混合名字;
+
+    【注】可以选择有参数或者没有参数
+*/
+#div1 {
+  margin-left: auto;
+  margin-right: auto; }
+  #div1 .box {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden; }
+
+#div2 {
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  padding-left: 30px; }
+  #div2 .box1 {
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    padding-left: 50px; }

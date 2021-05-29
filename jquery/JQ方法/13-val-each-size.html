@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            val()   获取或设置表单元素的value值
+            size()  输出，获取网页元素的个数
+            each()  jQ循环
+        */
+       $(function(){
+            //alert($("input").val());  //JQ取值只能取第一个元素的值
+            //$("input").val("helloworld");//JQ赋值会批量操作，会对所有获取到的元素进行赋值
+            //alert($("input").size()); 3.1.0以上版本不能用
+            alert($("input").length);
+
+            /* 
+                批量操作：
+                    css()
+                    html()
+                    attr()
+                循环意义不是特别大
+            */
+            //index:input框     item：类似于数组下标
+            $("input").each(function(index,item){
+                alert(item + "," +index);
+                // item.value = index;
+                //用JQ赋值  JS不能调用JQ方法
+                $(item).val(index);
+            })
+       })
+    </script>
+</head>
+<body>
+    <input type="text" value="aaaa">
+    <input type="text" value="bbbb">
+    <input type="text" value="ccc">
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            wrap()      每一个获取到的元素节点单独包装
+            wrapAll()   整体包装
+            wrapInner() 内部包装
+            unwrap()    删除外面一层包装,不包括body节点，没有参数
+        */
+       $(function(){
+           //给我们页面上所有span节点加一个包装
+           //wrap()这里需要我们去包装一个节点,直接写创建节点的代码
+           $("span").wrapAll("<p class='box' title='hello'></p>");
+       })
+    </script>
+</head>
+<body>
+    <div>
+        <span>span</span>
+    </div>
+    <span>span</span>
+    <span>span</span>
+    <span>span</span>
+    <span>span</span>
+</body>
+</html>

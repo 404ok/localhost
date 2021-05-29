@@ -1,0 +1,77 @@
+@charset "UTF-8";
+/* 
+    for循环
+    1. @for $var from <开始值> through <结束值>
+    2.@for $var from <start> to <end>
+
+    to:到达
+    through:经过
+*/
+.col-lg1 {
+  width: 8.33333px; }
+
+.col-lg2 {
+  width: 16.66667px; }
+
+.col-lg3 {
+  width: 25px; }
+
+.col-lg4 {
+  width: 33.33333px; }
+
+.col-lg5 {
+  width: 41.66667px; }
+
+.col-lg6 {
+  width: 50px; }
+
+.col-lg7 {
+  width: 58.33333px; }
+
+.col-lg8 {
+  width: 66.66667px; }
+
+.col-lg9 {
+  width: 75px; }
+
+.col-lg10 {
+  width: 83.33333px; }
+
+.col-lg11 {
+  width: 91.66667px; }
+
+.col-lg12 {
+  width: 100px; }
+
+.icon-success {
+  background-color: red; }
+
+.icon-warning {
+  background-color: red; }
+
+.icon-error {
+  background-color: red; }
+
+.icon-primary {
+  background-color: red; }
+
+.icon-info {
+  background-color: red; }
+
+.box6 {
+  width: 6em; }
+
+.box5 {
+  width: 5em; }
+
+.box4 {
+  width: 4em; }
+
+.box3 {
+  width: 3em; }
+
+.box2 {
+  width: 2em; }
+
+.box1 {
+  width: 1em; }

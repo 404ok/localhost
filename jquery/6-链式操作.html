@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            /* 
+                $("h1").click(function(){
+                    alert("单击");
+                })
+                $("h1").css("backgroundColor","orange");
+                $("h1").mouseover(function(){
+                    this.style.backgroundColor = "red"
+                })
+                $("h1").mouseout(function(){
+                    this.style.backgroundColor = "yellow"
+                })
+                
+                【注】上述操作主语都是h1,可以通过链式操作对其进行链式操作 ,类似于gulp的.pipe
+                */
+                $("h1").click(function(){
+                    alert("单击");
+                })
+                .css("backgroundColor","orange")
+                .mouseover(function(){
+                    this.style.backgroundColor = "red"
+                })
+                .mouseout(function(){
+                    this.style.backgroundColor = "yellow"
+                })
+
+
+        })
+    </script>
+</head>
+<body>
+    <h1>helloworld</h1>
+</body>
+</html>

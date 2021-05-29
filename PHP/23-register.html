@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+
+        Uncaught SyntaxError: Unexpected token < in JSON at position 0
+        这种问题，一般是检查php文件给返回的data数据，直接alert(result);
+        或者network里面php表的反应那，会有报错
+     -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <style>
+        #register{
+            width: 400px;
+            margin: 150px auto;
+        }
+        #alert_info{
+            margin: 2px;
+            padding: 2px;
+            text-align: center;
+            width: 215px;
+            margin-bottom: 10px;
+            display: none;
+        }
+    </style>
+    <script src="./ajax.js"></script>
+    <script>
+        /* 
+            输入内容，点击注册，发送到php后台,检测没有问题，就把注册内容加载到页面上,并且显示是否注册成功
+        */
+       //通过ajax把内容提交到后台
+       window.onload = function(){
+            var btn = document.getElementById("btn1");
+            var inputs = document.getElementsByTagName("input");
+            var alert_info = document.getElementById("alert_info");
+            btn.onclick = function(){
+                $ajax({
+                    method:"post",
+                    url:"./register.php",
+                    data:{
+                        username:inputs[0].value,
+                        password:inputs[1].value,
+                        addTime:new Date().getTime()
+                        //new Date()获取系统时间 .getTime转成当前时间的毫秒数
+                    },
+                    success:function(result){
+                        var obj = JSON.parse(result);
+                        if(obj.code){
+                            alert_info.className = "alert alert-danger";
+                        }else{
+                            alert_info.className = "alert alert-success";
+                                setTimeout(function(){
+                                    location.href = "./22-login.html"
+                                },2000)
+                        }
+                        alert_info.innerHTML = obj.message;
+                        alert_info.style.display = "block";
+                    },
+                    error:function(msg){
+                        var obj = JSON.parse(msg);
+                        console.log(obj);
+                    }
+                })
+            }
+       }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="panel panel-primary" id="register">
+            <div class="panel-heading">
+                <h2>注册</h2>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="username">用户名</label>
+                    <input type="text" name="username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="text" name="password" class="form-control">
+                </div>
+                <div id="alert_info" class="alert  alert-danger">
+                    xxx
+                </div>
+                <a href="./22-login.html">马上登录</a>
+                <!-- 注册按钮 -->
+                <button id="btn1" class="btn btn-primary ">注册</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

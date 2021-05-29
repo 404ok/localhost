@@ -1,0 +1,56 @@
+1.将文件整理好，保姆：将项目打理十分整洁
+2.使用gulp的流程：
+    1.下载和安装node.js
+    2.启动nodejs
+    3.windows
+        windows键(开始键) => nodeJS文件 => nodejs prompt
+        nvm 自行查阅，自行安装
+    4.安装nodeJS
+        npm 管理第三方包的包管理器(管理nodeJS的软件管理器)
+        (下载源是国外的网站)
+    5.安装cnpm  淘宝镜像
+        https://npm.taobao.org/
+
+        命令：npm install -g cnpm --registry=https://registry.npm.taobao.org
+    6.cnpm下载一些数据，是从国内淘宝服务器上下载数据
+
+    1.安装gulp到本地(gulp为第三方包)
+        【注意】windows不用注意这个细节,苹果每一句需要加一个sudo
+        <1>.全局安装gulp
+            cnpm install gulp -g
+            gulp -v 查看安装的gulp版本
+        <2>.进入到开发项目目录
+            【注】windows电脑是分磁盘的，如果你在别的盘创建的文件夹，应该先去切换盘符
+            cd D： + enter
+            清屏：window cls
+                 苹果/linux:clear
+    2.初始化当前目录
+        cnpm init
+        [注意] 生成package.json的文件，存放当前的一些配置信息
+    3.在当前项目里面安装到<gulp>
+        cnpm install gulp@3.9.1 --save-dev
+        cnpm i gulp@3.9.1 -D
+        --save  将这个文件，安装到本地的当前文件夹
+        -dev    将安装gulp的信息保存在package.json里面
+    4.gulpfile文件就是告诉gulp任务是什么
+    5.强大在可以下载各种各样的插件(4184多种)
+    6.给gulp添加插件
+        https://gulpjs.com/plugins/
+        使用第三方插件步骤：
+            commonJS规范
+                <1>先去下载插件到本地
+                    cnpm install 插件名字 --save-dev
+                    简写：cnpm i 插件名字 -D
+                <2>通过require()    引入文件
+                <3>查阅插件的用法
+    假如报错，用ctrl+C可以把任务关闭掉
+
+    要把文件给别人，将node_modules删除，之后文件变，别人再cmd下一个cnpm install
+    再gulp
+
+重点：
+    1.jquery编写的代码大家不要合并和压缩
+    2.给别人代码时，可以将node_modules
+    拿到项目之后:进入目录，直接cnpm install即可
+
+    温馨提示：配置两个以上屏幕，进行前端开发，效率会更高

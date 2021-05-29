@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            addClass()
+            removeClass()
+            【注意】操作class属性
+        */
+
+        $(function(){
+            // $("#div1").addClass("box3 box4 box2");
+            //会自动将重复的class过滤掉
+            $("#div1").removeClass("box2 box9")
+        })
+    </script>
+</head>
+<body>
+    <div id="div1" class="box1 box2"></div>
+</body>
+</html>

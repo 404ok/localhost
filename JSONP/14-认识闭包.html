@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            闭包：
+                满足以下三个条件
+                1.函数嵌套函数
+                2.内部函数使用外部函数的形参和变量
+                3.被引用的形参和变量就不会被垃圾回收机制所回收
+        */
+
+        //1.垃圾回收机制    函数作用域，函数调用会创建一个空间，函数结束即销毁
+
+       /*  function show(res){
+            var num = 10;
+            alert(num + "," + res);
+        }
+        show(20);
+        alert(num); */
+
+        function aaa(num1){
+            var num2 = 10;
+            function bbb(){
+                alert(num1 + "," + num2);
+            }
+            return bbb;
+        }
+        var res = aaa(20);
+        alert(res);
+        res( );
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

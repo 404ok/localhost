@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: palegoldenrod;
+            position: absolute;
+        }
+        p,em{
+            position: absolute;
+            cursor: pointer;
+        }
+    </style>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            接口方法：
+                $.extend()      拓展工具方法:$.xxx() $.yyy()
+                $.fn.extend()   拓展JQ方法：$().xxx()   $().yyy()
+            JQ插件方法
+                如果我们想要给JQ新增函数，通过上述两个插件方法拓展函数库
+        */
+
+        $.extend({
+            aaa:function(){
+                alert("这是一个JQ方法")
+            }
+        })
+        $.fn.extend({
+            aaa:function(){
+                alert("这是一个JQ方法")
+            },
+            drag:function(){
+                //这里this是js对象
+                $(this).mousedown(function(ev){
+                    var offsetX = ev.clientX - $(this).offset().left;
+                    var offsetY = ev.clientY - $(this).offset().top;
+                    var _this = this;
+                    $(document).mousemove(function(ev){
+                        $(_this).css({
+                            left:ev.clientX - offsetX,
+                            top:ev.clientY - offsetY,
+                        })
+                    })
+                })
+                $(document).mouseup(function(){
+                    $(document).off("mousemove");
+                })
+                return this;
+            }
+        })
+        //调用
+        $(function(){
+            /* 
+                $.aaa();
+                $("div").aaa();
+            */
+            $("div,p,em").drag()
+            .mouseover(function(){
+                $(this).css("backgroundColor","yellow");
+            });
+            //后面跟链式操作
+        })
+    </script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <p>p</p>
+    <em>em</em>
+</body>
+</html>

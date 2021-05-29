@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            把字句                                      被字句
+            (主要为了配合链式操作的语法).谁在后面，后续链式语句就是主语
+            insertBefore()                             before()
+            insertAfter()                              after()
+            appendTo()插到子节点的末尾                  appendChild(类似JS的方法)
+            append()
+            prependTo()插到子节点的首位                 prepend()
+            remove()
+        */
+       $(function(){
+           //想把span节点放在div1的前面
+           $("span").insertBefore("#div1");
+           $("#div2").insertAfter("#div3");
+
+           //找到span节点，插入到div节点的子节点的末尾
+           $("span").appendTo($("#div1"));
+           $("span").prependTo($("#div1"));
+
+           //删除
+           $("#div3").remove();
+       })
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <em>em</em>
+        div文本
+    </div>
+    <span>
+        span
+    </span>
+    <div id="div2">
+        div2
+    </div>
+    <div id="div3">
+        div3
+    </div>
+</body>
+</html>

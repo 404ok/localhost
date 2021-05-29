@@ -1,0 +1,16 @@
+#div1{
+    width: 100px;
+    .box{
+        height: 200px;
+    }
+    a{
+        background-color: red;
+        //& 父级元素选中器
+        &：hover{
+            color: greenyellow;
+            background-color: hotpink;
+        }
+
+    }
+}
+//按照HTML5的嵌套结构去嵌套

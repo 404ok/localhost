@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        /* 
+            给多个节点添加同样的行为
+            add()   将多个选择器拼接在一起
+            slice() slice[start,end)    [start,end]
+            获取指定范围内获取到的元素节点
+        */
+        $(function(){
+            // $("div").add("span").add("ul li")
+            $("div,span,ul li")
+            //以下为链式操作
+            .css("backgroundColor","red")
+            .click(function(){
+                alert("单击");
+            })
+            .mouseover(function(){
+                $(this).css("backgroundColor","orange");
+            })
+            .mouseout(function(){
+                $(this).css("backgroundColor","blue");
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <div>div</div>
+    <p>p</p>
+    <span>span</span>
+    <ul>
+        <li>1111</li>
+        <li>1111</li>
+        <li>1111</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/* 
+    @extend 进行继承
+*/
+.btn, .btn-primary, .btn-success {
+  width: 200px;
+  height: 50px; }
+  .btn a, .btn-primary a, .btn-success a {
+    color: red; }
+    .btn a:hover, .btn-primary a:hover, .btn-success a:hover {
+      background-color: orange;
+      background-color: aqua; }
+
+.btn-primary {
+  background-color: hotpink; }
+
+.btn-success {
+  background-color: khaki; }

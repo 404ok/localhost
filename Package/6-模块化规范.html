@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            规范：
+                1.commonJS(服务器规范) 编写代码:
+                    声明：
+                        module.exports = {
+                            outA:showA,
+                            outB:showB
+                        }
+                    引入(同步执行)：
+                        var moduleA = require("moduleA.js");
+                        moduleA.outA();
+                        moduleB.outB();
+                2.AMD规范：(客户端/浏览器)
+                    声明：
+                        define(function(){
+                            //代码
+                            return{
+                                outA:showA,
+                                outB:showB
+                            }
+                        })
+                    引入(异步)：
+                        现下载
+                        require("moduleA.js"，function(moduleA){
+                            //这里的代码，是模块引入之后执行
+                            moduleA.outA();
+                            moduleB.outB();
+                        });
+                    
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

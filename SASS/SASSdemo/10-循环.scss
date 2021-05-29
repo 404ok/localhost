@@ -1,0 +1,30 @@
+/* 
+    for循环
+    1. @for $var from <开始值> through <结束值>
+    2.@for $var from <start> to <end>
+
+    to:到达
+    through:经过
+*/
+
+$count:12;
+@for $i from 1 through $count{
+    .col-lg#{$i}{
+        width: 100px/12 * $i;
+    }
+}
+
+$icons:success warning error primary info;
+@each $icon in $icons {
+    .icon-#{$icon}{
+        background-color: red;
+    }
+}
+
+$num:6;
+@while $num > 0{
+    .box#{$num}{
+        width: 1em * $num;
+    }
+    $num : $num - 1;
+}
